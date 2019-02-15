@@ -11,10 +11,8 @@ Digital acknowledgement: Josiah Wedgwood
 
 ### Part 1 (25 pts)
 
-This was done via the [ELMS assignment](). 
+This was done via the [ELMS assignment](https://umd.instructure.com/courses/1261976/assignments/4844474). 
 
 ### Part 2 (75 pts)
 
-After concluding the presence of vulnerabilities, I would first tell my boss and
-then only disclose the vulnerabilities to a watchdog or the public after assessing
-the potential harm of those vulnerabilities. 
+
