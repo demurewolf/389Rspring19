@@ -36,11 +36,28 @@ stub.py is my implementation of the fpff parser.
 
 Information about greetz.fpff:
 
-1)
+1) greetz.fpff was generated on 2019-03-27 04:15:05.
 
-2)
+2) The author is a user named fl1nch
 
-3)
+3) There are 5 sections in total (listed in order of appearance in greetz.fpff):
+Ascii section: 
+Hey you, keep looking :)
 
-4)
+Coord section:
+This section contains the coordinates Latitude 52.336035, Longitude 4.880673
+
+Png section:
+This section contains a png image of testudo cheering, along with the flag CMSC389R-{w31c0me_b@ck_fr0m_spr1ng_br3ak} printed sideways
+
+Ascii section:
+This contains the reversed flag }R983CSMC_perg_tndid_u0y_yllufep0h{-R983CSMC, which is just CMSC389R-{h0pefully_y0u_didnt_grep_CMSC389R}
+
+Ascii section:
+This section contains the base64 encoded string Q01TQzM4OVIte2hleV9oM3lfeTBVX3lvdV9JX2RvbnRfbGlrZV95b3VyX2Jhc2U2NF9lbmNvZGluZ30=, which when decoded shows the flag CMSC389R-{hey_h3y_y0U_you_I_dont_like_your_base64_encoding}
+
+4) Flags found: 
+CMSC389R-{w31c0me_b@ck_fr0m_spr1ng_br3ak}
+CMSC389R-{h0pefully_y0u_didnt_grep_CMSC389R}
+CMSC389R-{hey_h3y_y0U_you_I_dont_like_your_base64_encoding}
 
