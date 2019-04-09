@@ -1,0 +1,7 @@
+Potential IPs:
+
+142.93.136.81 - 1337bank ip
+159.203.113.181 - Attacker ip
+
+Attacker ip keeps initiating tcp connections to 1337bank ip on different ports. 
+Scanned ports of value: 80, 2121, 3128, 21 (ftp port)
