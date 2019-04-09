@@ -63,42 +63,55 @@ print("SECTION COUNT: %d" % int(section_count))
 
 print("-------  BODY  -------")
 
-for section in range(0, section_count):
+for section in range(1, section_count+1):
     (stype, slen) = struct.unpack("II", data[curr:(curr+8)])
     curr += 8
     if stype != 0:
         (svalue,) = struct.unpack("%ds" % slen, data[curr:(curr+slen)])
         if stype == SECTION_ASCII:
-            print("ASCII SECTION %d" % (section + 1))
+            print("ASCII SECTION %d" % section)
             print("%s" % str(svalue))
             
         elif stype == SECTION_UTF8:
-            print("utf8 section")
+            print("UTF8 SECTION %d" % section)
+            print("%s" % svalue.decode('utf8'))
         
         elif stype == SECTION_WORDS:
-            print("array of words section")
+            print("WORDS SECTION %d" % section)
+            num_words = slen / 4
+            for w in range(1, num_words+1):
+                (word,) = struct.unpack("L", svalue[(w-1)*4:w*4])
+                print("WORD %d : %s" % (w, hex(word)))
             
         elif stype == SECTION_DWORDS:
-            print("array of dwords section")
+            print("DWORDS SECTION %d" % section)
+            num_dwords = slen / 8
+            for dw in range(1, num_dwords+1):
+                (dword,) = struct.unpack("Q", svalue[(dw-1)*8:dw*8])
+                print("DWORD %d : %s" % (dw, hex(dword)))
             
         elif stype == SECTION_DOUBLES:
-            print("array of doubles section")
+            print("DOUBLES SECTION %d" % section)
+            num_doubles = slen / 8
+            for d in range(1, num_doubles+1):
+                (double,) = struct.unpack("d", svalue[(d-1)*8:d*8])
+                print("DOUBLE %d : %f" % (d, double))
         
         elif stype == SECTION_COORD:
             if slen != 16:
                 bork("Bad coordinate section encounted in body in section %d" % (section + 1))
                 
-            print("COORD SECTION %d" % (section + 1))
+            print("COORD SECTION %d" % section)
             latitude, longitude = struct.unpack("dd", svalue[0:slen])
             print("Latitude %f, Longitude %f" % (latitude, longitude))
         
         elif stype == SECTION_REFERENCE:
-            print("reference section")
+            print("REFERENCE SECTION %d" % section)
             
         elif stype == SECTION_PNG:
-            print("PNG SECTION %d" % (section + 1))
+            print("PNG SECTION %d" % section)
             
-            filename = "png%d.png" % (section + 1)
+            filename = "png%d.png" % section
             out = open(filename, "wb")
             
             pngmagic1 = 0x474e5089
@@ -109,10 +122,10 @@ for section in range(0, section_count):
             print("Created png file %s" % filename)
                    
         elif stype == SECTION_GIF87:
-            print("gif87 section")
+            print("GIF87 SECTION %d" % section)
         
         elif stype == SECITON_GIF89:
-            print("gif89 section")
+            print("GIF89 SECTION %d" % section)
             
         else:
             bork("Unknown section type reached")
