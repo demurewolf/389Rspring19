@@ -1,12 +1,12 @@
 # Writeup 7 - Binaries I
 
-Name: *PUT YOUR NAME HERE*
-Section: *PUT YOUR SECTION NUMBER HERE*
+Name: Josiah Wedgwood
+Section: 0101
 
 I pledge on my honor that I have not given or received any unauthorized
 assistance on this assignment or examination.
 
-Digital acknowledgement: *PUT YOUR NAME HERE*
+Digital acknowledgement: Josiah Wedgwood
 
 ## Assignment Writeup
 
@@ -14,9 +14,39 @@ Digital acknowledgement: *PUT YOUR NAME HERE*
 
 *Put your code here as well as in main.c*
 ```c
-printf("your code here");
+/*
+ * Name: Josiah Wedgwood
+ * Section: 0101
+ *
+ * I pledge on my honor that I have not given or received any unauthorized
+ * assistance on this assignment or examination.
+ *
+ * Digital acknowledgement: Josiah Wedgwood
+ */
+
+/* your code goes here */
+
+#include <stdio.h>
+
+int main() {
+    int b = 0x1ceb00da;
+    int a = 0xfeedface;
+    int sp1, sp2;
+    
+    printf("a = %d\n", a);
+    printf("b = %d\n", b);
+    
+    a = a ^ b;
+    b = b ^ a;
+    a = b ^ a;
+    
+    printf("a = %d\n", a);
+    printf("b = %d\n", b);
+
+    return 0;
+}
 ```
 
 ### Part 2 (10 Pts)
 
-*Replace this text with your repsonse to our prompt for part 2!*
+The main.s program first prints two numbers, a = -17958194 (0xfeedface) and b = 485163226 (0x1ceb00da). It then swaps the values of a and b with three xor operations, and then re-prints the values held by a = 485163226 and b = -17958194. 

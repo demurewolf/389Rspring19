@@ -1,56 +1,56 @@
-section .text
-
-global main
+	.file	"main.c"
+	.text
+	.section	.rodata
+.LC0:
+	.string	"a = %d\n"
+.LC1:
+	.string	"b = %d\n"
+	.text
+	.globl	main
+	.type	main, @function
 main:
-  push rbp
-  mov rbp, rsp
-  sub rsp, 0x10
-  mov DWORD [rbp-0x8], 0x1ceb00da
-  mov DWORD [rbp-0x4], 0xfeedface
-
-  mov eax, DWORD [rbp-0x4]
-  mov esi, eax
-  mov edi, a_fmt  ; see data section at bottom
-  mov eax, 0x0
-  call printf
-
-  mov eax, DWORD [rbp-0x8]
-  mov esi, eax
-  mov edi, b_fmt  ; see data section at bottom
-  mov eax, 0x0
-  call printf
-
-  mov eax, DWORD [rbp-0x8]
-  xor DWORD [rbp-0x4],eax
-  mov eax, DWORD [rbp-0x4]
-  xor DWORD [rbp-0x8],eax
-  mov eax, DWORD [rbp-0x8]
-  xor DWORD [rbp-0x4],eax
-
-  mov eax, DWORD [rbp-0x4]
-  mov esi, eax
-  mov edi, a_fmt  ; see data section at bottom
-  mov eax, 0x0
-  call printf
-
-  mov eax, DWORD [rbp-0x8]
-  mov esi, eax
-  mov edi, b_fmt  ; see data section at bottom
-  mov eax, 0x0
-  call printf
-
-  mov eax, 0x0
-  pop rbp
-  ret
-  nop
-
-section .data
-a_fmt:
-  db 'a = %d\n', 0  ; null-terminated format string
-
-                    ; db is an assembler directive that initializes a few bytes
-                    ; of memory. dw, dd, and dq do this similarly with different
-                    ; sizes of data.
-
-b_fmt:
-  db 'b = %d\n', 0  ; null-terminated format string
+.LFB0:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	subq	$16, %rsp
+	movl	$485163226, -4(%rbp)
+	movl	$-17958194, -8(%rbp)
+	movl	-8(%rbp), %eax
+	movl	%eax, %esi
+	leaq	.LC0(%rip), %rdi
+	movl	$0, %eax
+	call	printf@PLT
+	movl	-4(%rbp), %eax
+	movl	%eax, %esi
+	leaq	.LC1(%rip), %rdi
+	movl	$0, %eax
+	call	printf@PLT
+	movl	-4(%rbp), %eax
+	xorl	%eax, -8(%rbp)
+	movl	-8(%rbp), %eax
+	xorl	%eax, -4(%rbp)
+	movl	-4(%rbp), %eax
+	xorl	%eax, -8(%rbp)
+	movl	-8(%rbp), %eax
+	movl	%eax, %esi
+	leaq	.LC0(%rip), %rdi
+	movl	$0, %eax
+	call	printf@PLT
+	movl	-4(%rbp), %eax
+	movl	%eax, %esi
+	leaq	.LC1(%rip), %rdi
+	movl	$0, %eax
+	call	printf@PLT
+	movl	$0, %eax
+	leave
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE0:
+	.size	main, .-main
+	.ident	"GCC: (Debian 8.2.0-7) 8.2.0"
+	.section	.note.GNU-stack,"",@progbits
