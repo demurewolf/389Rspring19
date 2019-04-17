@@ -107,6 +107,10 @@ for section in range(1, section_count+1):
         
         elif stype == SECTION_REFERENCE:
             print("REFERENCE SECTION %d" % section)
+            ref = struct.unpack("L", svalue)
+            if ref not in range(0, section_count):
+                bork("Section reference is not inside this file!")
+            print("Referencing section %d" % (ref + 1))
             
         elif stype == SECTION_PNG:
             print("PNG SECTION %d" % section)
@@ -118,14 +122,17 @@ for section in range(1, section_count+1):
             pngmagic2 = 0x0a1a0a0d
             out.write(struct.pack("ii", pngmagic1, pngmagic2))
             out.write(data[curr:(curr+slen)])
+            out.close()
             
             print("Created png file %s" % filename)
                    
         elif stype == SECTION_GIF87:
             print("GIF87 SECTION %d" % section)
+            # Signature: GIF87a
         
         elif stype == SECITON_GIF89:
             print("GIF89 SECTION %d" % section)
+            # Signature: GIF89a
             
         else:
             bork("Unknown section type reached")
