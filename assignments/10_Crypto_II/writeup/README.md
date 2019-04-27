@@ -19,3 +19,9 @@ The flag from the decrypted file message.txt.gpg included the flag CMSC389R-{m3s
 ### Part 2 (30 Pts)
 
 *Your reflection goes here*
+
+![Original Image](https://github.com/demurewolf/389Rspring19/blob/master/assignments/10_Crypto_II/writeup/original.bmp)
+
+![Image after ECB Encryption](https://github.com/demurewolf/389Rspring19/blob/master/assignments/10_Crypto_II/writeup/ecb.bmp)
+
+![Image after CBC Encryption](https://github.com/demurewolf/389Rspring19/blob/master/assignments/10_Crypto_II/writeup/cbc.bmp)
