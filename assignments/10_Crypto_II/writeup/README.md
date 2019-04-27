@@ -14,7 +14,7 @@ Digital acknowledgement: Josiah Wedgwood
 
 The flag from the decrypted file message.txt.gpg included the flag CMSC389R-{m3ss@g3_!n_A_b0ttl3}
 
-![Screenshot of my gpg secret key output](https://github.com/demurewolf/389Rspring19/assignments/10_Crypto_II/writeup/imported_gpg_key_screenshot)
+![Screenshot of my gpg secret key output](https://github.com/demurewolf/389Rspring19/blob/master/assignments/10_Crypto_II/writeup/imported_gpg_key_screenshot.png)
 
 ### Part 2 (30 Pts)
 
