@@ -21,18 +21,21 @@ Level 1:
 * Toggling the target code shows that the query text is directly embedded into the DOM between the tags <b> and </b>
 * Using the query "<script>alert("test")</script>" shows an alert on the results page and the expected bold text is no longer present.
 
-Query to execute xss: 
+Query to execute xss:
+```html
 <script>alert("test")</script>
-
+```
 
 Level 2:
 * First I just tried "<script>alert("test")</script>" in the message field to see that the message is turns blank on the webpage, but there's no script execution
 * I was honestly stuck on this level. Even though I could embed other html elements in the webpage, I couldn't get the <script> element to work directly
 * Using the final hint "This level is sponsored by the letters i, m and g and the attribute onerror.", I quickly looked up what the onerror attribute is for html elements.
-* Now knowing about onerror, I used "<img src="/doesnotexist" oneorror="alert('test')">" to save an xss vector on the webpage
+* Now knowing about onerror, I used ```html "<img src="/doesnotexist" oneorror="alert('test')">" ``` to save an xss vector on the webpage
   
 Message to execute xss:
+```html
 <img src="/doesnotexist" onerror="alert('test')">
+```
 
 Level 3:
 TODO
