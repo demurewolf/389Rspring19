@@ -38,7 +38,13 @@ Message to execute xss:
 ```
 
 Level 3:
-TODO
+
+* Opened the target code and examined how the chooseTab(num) function showed images on the webpage
+* chooseTab directly puts the num parameter in the img src with ```javascript html += "<img src='/static/level3/cloud" + num + ".jpg' />";```
+* Clicked on an image to see how URL changes -- #number is appended to URL depending on the image clicked
+
+URL to execute xss:
+https://xss-game.appspot.com/level3/frame#' onerror='alert("test")'/>
 
 Level 4: 
 TODO
