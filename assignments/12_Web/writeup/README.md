@@ -49,8 +49,16 @@ URL to execute xss:
 https://xss-game.appspot.com/level3/frame#' onerror='alert("test")'/>
 ```
 
-Level 4: 
-TODO
+Level 4:
+
+* Opened target code and saw that user input is inserted as ```html onload="startTimer('{{ timer }}');" ```
+* Using ```raw 5');// ``` as the input starts the timer function with 5 seconds and escapes the '); from the onload attribute
+* Added an alert between the comments and the semicolon to get ```raw 5');alert("test");// ``` and this executes the alert
+
+Input to execute xss:
+```raw
+5');alert("test");//
+```
 
 Level 5:
 TODO
