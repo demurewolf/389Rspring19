@@ -1,4 +1,4 @@
-# Crypto II Writeup
+# Web Writeup
 
 Name: Josiah Wedgwood
 Section: 0101
@@ -42,6 +42,7 @@ Level 3:
 * Opened the target code and examined how the chooseTab(num) function showed images on the webpage
 * chooseTab directly puts the num parameter in the img src with ```javascript html += "<img src='/static/level3/cloud" + num + ".jpg' />";```
 * Clicked on an image to see how URL changes -- #number is appended to URL depending on the image clicked
+* I then tried getting the javascript parser to close the image src name and then insert the onerror attribute to execute my xss
 
 URL to execute xss:
 ```raw
