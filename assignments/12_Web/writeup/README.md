@@ -61,7 +61,15 @@ Input to execute xss:
 ```
 
 Level 5:
-TODO
+
+* Opening target code shows a variable next that get changed to direct the user's sign up process
+* On the signup page, the next button at the bottom is set with an a href tag as ```<a href="{{ next }}">Next >></a>```
+* From Flask's security page (http://flask.pocoo.org/docs/1.0/security/), there's a section explaining how Jinja does not protect agains a href tags from executing javascript, so changing the next variable in the URL can embed xss
+
+URL to embed xss (needs user to trigger by clicking next button)
+```raw
+https://xss-game.appspot.com/level5/frame/signup?next=javascript:alert('unsafe');
+```
 
 Level 6:
 TODO
