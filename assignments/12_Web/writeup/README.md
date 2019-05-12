@@ -11,7 +11,15 @@ Digital acknowledgement: Josiah Wedgwood
 ## Assignment Writeup
 
 ### Part 1 (40 Pts)
-TODO
+
+* First clicked around the Vuln shop webpage and observed how the webpage url changes
+* Each individual exploit's webpage was from the /item resource on the shop, just with changing values for the id parameter in the url
+* The title led to SQL, so use SQL injection on the /item page of the Vuln shop
+* Tried using values such as ```0' or '1'='1' -- ``` for the id parameter but the webpage would load the error page for sql injection
+* I then went searching for alternate ways to express this sql injection and then I changed the ```or``` to ```||```
+* The above alteration showed a webpage with the shop information from each exploit sold and then the info for a secret flag exploit that can be bought for $1337
+
+Flag: CMSC389R-{y0u_ar3_th3_SQ1_ninj@}
 
 ### Part 2 (60 Pts)
 
